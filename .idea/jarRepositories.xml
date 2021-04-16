@@ -7,9 +7,74 @@
       <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="spring-milestones" />
+      <option name="name" value="Spring Milestones" />
+      <option name="url" value="https://repo.spring.io/milestones" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="rib-snapshot" />
+      <option name="name" value="rib-snapshot" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/repositories/rib-snapshot" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public-snapshots" />
+      <option name="name" value="public-snapshots" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public-snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public-npm" />
+      <option name="name" value="public-npm" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/npmjs/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public" />
+      <option name="name" value="public" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jitpack.io" />
+      <option name="name" value="jitpack.io" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="snapshots" />
+      <option name="name" value="snapshots" />
+      <option name="url" value="http://snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="rib-snapshot" />
+      <option name="name" value="rib-snapshot" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-milestones" />
+      <option name="name" value="Spring Milestones" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ip-snapshots" />
+      <option name="name" value="Rabo: IP Snapshots" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/repositories/ip-snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="rib-release" />
+      <option name="name" value="rib-release" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/repositories/rib-release" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
@@ -19,11 +84,6 @@
     <remote-repository>
       <option name="id" value="rib-release" />
       <option name="name" value="rib-release" />
-      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
       <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
@@ -37,9 +97,9 @@
       <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="public" />
-      <option name="name" value="public" />
-      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+      <option name="id" value="jitpack.io" />
+      <option name="name" value="jitpack.io" />
+      <option name="url" value="https://repository.mulesoft.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="public-npm" />
@@ -52,14 +112,9 @@
       <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="jitpack.io" />
-      <option name="name" value="jitpack.io" />
-      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="rib-snapshot" />
-      <option name="name" value="rib-snapshot" />
-      <option name="url" value="https://maven.rabobank.nl/nexus/content/groups/public" />
+      <option name="id" value="ip-release" />
+      <option name="name" value="Rabo: IP Releases" />
+      <option name="url" value="https://maven.rabobank.nl/nexus/content/repositories/ip-release" />
     </remote-repository>
   </component>
 </project>
