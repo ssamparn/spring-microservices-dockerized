@@ -1,9 +1,9 @@
-package com.containerize.springappdockerize.web.controller;
+package com.containerize.web.appliance.controller;
 
-import com.containerize.springappdockerize.entity.ApplianceEntity;
-import com.containerize.springappdockerize.model.Appliance;
-import com.containerize.springappdockerize.service.ApplianceResponseFactory;
-import com.containerize.springappdockerize.service.ApplianceService;
+import com.containerize.web.appliance.entity.ApplianceEntity;
+import com.containerize.web.appliance.model.Appliance;
+import com.containerize.web.appliance.service.ApplianceResponseFactory;
+import com.containerize.web.appliance.service.ApplianceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
-package com.containerize.springappdockerize.repository;
+package com.containerize.web.appliance.repository;
 
-import com.containerize.springappdockerize.entity.ApplianceEntity;
+import com.containerize.web.appliance.entity.ApplianceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

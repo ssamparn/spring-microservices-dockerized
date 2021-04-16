@@ -1,8 +1,8 @@
-package com.containerize.springappdockerize.service;
+package com.containerize.web.appliance.service;
 
-import com.containerize.springappdockerize.entity.ApplianceEntity;
-import com.containerize.springappdockerize.model.Appliance;
-import com.containerize.springappdockerize.repository.ApplianceRepository;
+import com.containerize.web.appliance.entity.ApplianceEntity;
+import com.containerize.web.appliance.model.Appliance;
+import com.containerize.web.appliance.repository.ApplianceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.containerize.springappdockerize.entity;
+package com.containerize.web.appliance.entity;
 
 import lombok.Data;
 

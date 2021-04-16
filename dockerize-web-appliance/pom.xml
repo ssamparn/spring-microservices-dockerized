@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.containerize</groupId>
-	<artifactId>spring-app-dockerize</artifactId>
+	<artifactId>dockerize-web-appliance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-app-dockerize</name>
+	<name>Dockerize Web Appliance Application</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -107,25 +107,25 @@
 <!--					</execution>-->
 <!--				</executions>-->
 <!--			</plugin>-->
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>jib-maven-plugin</artifactId>
-				<version>1.6.1</version>
-				<configuration>
-					<container>
-						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
-					</container>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>dockerBuild</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>com.google.cloud.tools</groupId>-->
+<!--				<artifactId>jib-maven-plugin</artifactId>-->
+<!--				<version>1.6.1</version>-->
+<!--				<configuration>-->
+<!--					<container>-->
+<!--						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>-->
+<!--					</container>-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>dockerBuild</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
-		<finalName>dockerized-spring-app</finalName>
+		<finalName>appliance-web-app</finalName>
 	</build>
 </project>

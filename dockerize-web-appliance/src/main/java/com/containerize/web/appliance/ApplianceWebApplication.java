@@ -1,13 +1,13 @@
-package com.containerize.springappdockerize;
+package com.containerize.web.appliance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringAppDockerizeApplication {
+public class ApplianceWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringAppDockerizeApplication.class, args);
+		SpringApplication.run(ApplianceWebApplication.class, args);
 	}
 
 }
