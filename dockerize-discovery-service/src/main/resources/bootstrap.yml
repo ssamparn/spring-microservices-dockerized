@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: dockerize-discovery-service

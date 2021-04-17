@@ -18,6 +18,7 @@
     </properties>
 
     <modules>
+        <module>dockerize-discovery-service</module>
         <module>dockerize-web-appliance</module>
         <module>dockerize-currency-conversion</module>
         <module>dockerize-currency-exchange</module>

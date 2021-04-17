@@ -1,11 +1,21 @@
 version: '3.7'
 
 services:
+  discovery-server:
+    image: ssamantr/dockerize-discovery-service:0.0.1-SNAPSHOT
+    ports:
+      - "8761:8761"
+    restart: always
+    networks:
+      - currency-compose-network
+
   currency-exchange-service:
     image: ssamantr/dockerize-currency-exchange:0.0.1-SNAPSHOT
     ports:
       - "8000:8000"
     restart: always
+    depends_on:
+      - discovery-server
     networks:
       - currency-compose-network
 
@@ -17,6 +27,7 @@ services:
     environment:
       CURRENCY_EXCHANGE_URI: http://currency-exchange-service:8000
     depends_on:
+      - discovery-server
       - currency-exchange-service
     networks:
       - currency-compose-network

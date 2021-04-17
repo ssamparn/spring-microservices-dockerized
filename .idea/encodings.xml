@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/dockerize-currency-conversion/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dockerize-currency-exchange/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dockerize-discovery-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dockerize-web-appliance/src/main/java" charset="UTF-8" />
   </component>
 </project>
