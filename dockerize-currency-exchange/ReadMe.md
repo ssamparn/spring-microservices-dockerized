@@ -22,3 +22,10 @@ $ docker run -p 8100:8100 --network=currency-network -d --name=currency-conversi
 $ docker login
 $ docker push ssamantr/dockerize-currency-exchange:0.0.1-SNAPSHOT
 ```
+
+### Run Containers from Docker Compose
+```bash
+$ docker-compose up
+$ docker-compose up -d
+
+```
