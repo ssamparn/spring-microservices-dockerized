@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+spring:
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  security:
+    user:
+      name: user
+      password: password
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /manage

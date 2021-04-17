@@ -288,4 +288,8 @@ $ docker run -p 8080:8080 spring-app-dockerize:latest
    </executions>
 </plugin>
  ```
-
+### To push the Docker Image to docker hub
+```bash
+$ docker push image-name:tag-name
+$ docker push ssamantr/dockerize-web-appliance:0.0.1-SNAPSHOT
+```

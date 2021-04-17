@@ -19,6 +19,8 @@
 
     <modules>
         <module>dockerize-web-appliance</module>
+        <module>dockerize-currency-conversion</module>
+        <module>dockerize-currency-exchange</module>
     </modules>
 
 </project>

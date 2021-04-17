@@ -5,20 +5,27 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.4</version>
+		<version>2.4.5</version>
 		<relativePath/>
 	</parent>
+
 	<groupId>com.containerize</groupId>
-	<artifactId>dockerize-web-appliance</artifactId>
+	<artifactId>dockerize-currency-exchange</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Dockerize Web Appliance Application</name>
+
+	<name>Dockerize Currency Exchange</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>2020.0.2</spring-cloud.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -29,15 +36,21 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -52,20 +65,39 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
+		<finalName>dockerize-currency-exchange</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.spotify</groupId>
@@ -76,6 +108,7 @@
 						<id>default</id>
 						<goals>
 							<goal>build</goal>
+							<!-- <goal>push</goal> -->
 						</goals>
 					</execution>
 				</executions>
@@ -85,47 +118,7 @@
 					<skipDockerInfo>true</skipDockerInfo>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-dependency-plugin</artifactId>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<id>unpack</id>-->
-<!--						<phase>package</phase>-->
-<!--						<goals>-->
-<!--							<goal>unpack</goal>-->
-<!--						</goals>-->
-<!--						<configuration>-->
-<!--							<artifactItems>-->
-<!--								<artifactItem>-->
-<!--									<groupId>${project.groupId}</groupId>-->
-<!--									<artifactId>${project.artifactId}</artifactId>-->
-<!--									<version>${project.version}</version>-->
-<!--								</artifactItem>-->
-<!--							</artifactItems>-->
-<!--						</configuration>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>com.google.cloud.tools</groupId>-->
-<!--				<artifactId>jib-maven-plugin</artifactId>-->
-<!--				<version>1.6.1</version>-->
-<!--				<configuration>-->
-<!--					<container>-->
-<!--						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>-->
-<!--					</container>-->
-<!--				</configuration>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<phase>package</phase>-->
-<!--						<goals>-->
-<!--							<goal>dockerBuild</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
 		</plugins>
-		<finalName>appliance-web-app</finalName>
 	</build>
+
 </project>
