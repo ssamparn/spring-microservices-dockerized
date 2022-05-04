@@ -25,7 +25,7 @@ public class ApplianceController {
     @Autowired
     private ApplianceResponseFactory applianceResponseFactory;
 
-    @PostMapping("/post")
+    @PostMapping("/post-appliance")
     public ResponseEntity<Appliance> createAppliance(@RequestBody Appliance appliance) {
 
         final ApplianceEntity entity = applianceService.createAppliance(appliance);
@@ -34,7 +34,7 @@ public class ApplianceController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/get-all-appliances")
     public ResponseEntity<List<Appliance>> getAllAppliances() {
 
         final List<ApplianceEntity> appliances = applianceService.getAppliances();

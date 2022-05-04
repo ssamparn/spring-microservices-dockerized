@@ -6,6 +6,7 @@ spring:
     name: currency-exchange-service
   jpa:
     show-sql: true
+    defer-datasource-initialization: true
   h2:
     console:
       enabled: true

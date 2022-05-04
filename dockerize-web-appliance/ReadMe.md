@@ -1,5 +1,5 @@
 # Dockerize-Spring-App
-Spring App Dockerize is a simple Spring Boot Application created and containerized for the purpose of Learning how to containerize a Spring based Java Application.
+Dockerize Web Applicance Application is a simple Spring Boot Application created and containerized for the purpose of Learning how to containerize a Spring based Java Application.
 
 ## To run the Application using Spring Boot Maven Plugin
 ```bash
@@ -19,24 +19,27 @@ $ docker run -dit openjdk:11
 $ docker container ls
 $ docker container exec container-id ls /tmp
 ```
+> -d = --detached (option for running the container in detached mode) <br />
+> -i = --interactive (option for running the container in interactive mode) <br />
+> -t = --tty <br />
 
 ### 3) Copy the .jar into /tmp directory 
 ```bash
-$ docker container cp target/spring-app-dockerized.jar container-id:/tmp
-$ docker container exec container-id ls /tmp
+$ docker container cp target/appliance-web-app.jar container-id:/tmp
+$ docker container exec <container-id> ls /tmp
 ```
 
 ### 4) Save the container changes into an image
 ```bash
-$ docker commit container-id spring-app-dockerize:latest
+$ docker container commit <container-id> appliance-web-app:latest
 $ docker images
 $ docker container ls
 ```
 
 ### 5) Run the .jar from the /tmp directory
 ```bash
-$ docker container commit --change='CMD ["java","-jar","/tmp/dockerized-spring-app.jar"]' container-id spring-app-dockerize:latest
-$ docker run -p 8080:8080 spring-app-dockerize:latest
+$ docker container commit --change='CMD ["java","-jar","/tmp/appliance-web-app.jar"]' <container-id> appliance-web-app:latest
+$ docker run -p 8080:8080 appliance-web-app:latest
 ```
 
 ## Docker File
@@ -44,33 +47,37 @@ $ docker run -p 8080:8080 spring-app-dockerize:latest
 ### Basic
 ```bash
 FROM openjdk:11
-EXPOSE 8080
 ADD target/hello-world-rest-api.jar hello-world-rest-api.jar
+WORKDIR /tmp
+EXPOSE 8080
 ENTRYPOINT ["sh", "-c", "java -jar /hello-world-rest-api.jar"]
 ```
 
 ### Genric
 ```bash
 FROM openjdk:11
-EXPOSE 8080
 ADD target/*.jar app.jar
+WORKDIR /tmp
+EXPOSE 8080
 ENTRYPOINT ["sh", "-c", "java -jar /app.jar"]
 ```
 
 ### To Build the Docker Image from Dockerfile
 ```bash
-$ docker build -f Dockerfile -t spring-app-dockerize:latest .
+$ docker build -f Dockerfile -t appliance-web-app:latest .
 ```
 ```bash
 $ docker images
 $ docker container ls
-$ docker run -p 8080:8080 spring-app-dockerize:latest
-$ docker history spring-app-dockerize:latest
+$ docker run -p 8080:8080 appliance-web-app:latest
+$ docker history appliance-web-app:latest
 ```
 
 ## Plugins
 
 ### Dockerfile Maven
+
+> Spotify Maven plugin creates docker images with the help of a Dockerfile.
 
 - From Spotify https://github.com/spotify/dockerfile-maven
 
@@ -155,7 +162,7 @@ $ docker build -f Dockerfile -t spring-app-dockerize:latest .
 ```
 
 ### JIB Plugin
-JIB Maven plugin creates docker images without a Dockerfile.
+> JIB Maven plugin creates docker images without a Dockerfile.
 #### "useCurrentTimestamp - true" discussion
 - https://github.com/GooleContainerTools/jib/blob/master/docs/faq.md#why-is-my-image-created-48-years-ago
 - https://github.com/GoogleContainerTools/jib/issues/413
@@ -206,6 +213,8 @@ JIB Maven plugin creates docker images without a Dockerfile.
 ```
 
 ### fabric8io/docker-maven-plugin
+
+> Fabric8 Maven plugin creates docker images with the help of a Dockerfile.
 
 - https://dmp.fabric8.io/
 - Remove Spotify Maven and JIB Plugins. Add the plugin shown below and configure property for jar file.
