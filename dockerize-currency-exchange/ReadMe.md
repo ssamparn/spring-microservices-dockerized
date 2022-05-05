@@ -14,7 +14,6 @@
 $ docker network create currency-network
 $ docker run -p 8000:8000 --network=currency-network -d --name=currency-exchange-service ssamantr/dockerize-currency-exchange:0.0.1-SNAPSHOT
 $ docker run -p 8100:8100 --network=currency-network -d --name=currency-conversion-service --env CURRENCY_EXCHANGE_URI=http://currency-exchange-service:8000 ssamantr/dockerize-currency-conversion:0.0.1-SNAPSHOT
-
 ```
 
 ### Push Containers to DockerHub
@@ -27,5 +26,9 @@ $ docker push ssamantr/dockerize-currency-exchange:0.0.1-SNAPSHOT
 ```bash
 $ docker-compose up
 $ docker-compose up -d
+```
 
+### Scale Containers from Docker Compose
+```bash
+$ docker-compose scale currency-exchange-service=2
 ```

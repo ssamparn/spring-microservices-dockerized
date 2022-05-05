@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrencyConversionBean {
+public class CurrencyConversionResponse {
 
     private Long id;
     private String from;

@@ -15,5 +15,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().disable()
                 .csrf().disable();
     }
-
 }
