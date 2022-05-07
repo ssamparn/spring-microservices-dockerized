@@ -81,7 +81,7 @@ $ docker history appliance-web-app:latest
 
 - From Spotify https://github.com/spotify/dockerfile-maven
 
-```
+```xml
 <plugin>
 	<groupId>com.spotify</groupId>
 	<artifactId>dockerfile-maven-plugin</artifactId>
@@ -121,7 +121,7 @@ $ docker history appliance-web-app:latest
 			---------------
 
 ### Maven Dependency Plugin
-```
+```xml
 <plugin>	
 	<groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-dependency-plugin</artifactId>
@@ -167,7 +167,7 @@ $ docker build -f Dockerfile -t spring-app-dockerize:latest .
 - https://github.com/GooleContainerTools/jib/blob/master/docs/faq.md#why-is-my-image-created-48-years-ago
 - https://github.com/GoogleContainerTools/jib/issues/413
 
-```
+```xml
 <plugin>
 	<groupId>com.google.cloud.tools</groupId>
 	<artifactId>jib-maven-plugin</artifactId>
@@ -188,7 +188,7 @@ $ docker build -f Dockerfile -t spring-app-dockerize:latest .
 </plugin>
 ```
 ### Few JIB Maven Plugin configuration
-```
+```xml
 <configuration>
 	<from>
 		<image>openjdk:alpine</image>
@@ -224,13 +224,11 @@ $ docker build -f Dockerfile -t spring-app-dockerize:latest .
 - Defining Dockerfile contents in POM XML.
 
 #### Using Dockerfile
-
-To build the image - "mvn clean package".
-Successfully tagged spring-app-dockerize.
 ```bash
+$ mvn clean package
 $ docker run -p 8080:8080 spring-app-dockerize:latest
 ```
-```
+```xml
 <plugin>
 	<groupId>io.fabric8</groupId>
 	<artifactId>docker-maven-plugin</artifactId>
@@ -247,7 +245,7 @@ $ docker run -p 8080:8080 spring-app-dockerize:latest
 </plugin>
 ```
 
-```
+```xml
 <properties>
 ...
  <jar>${project.build.directory}/${project.build.finalName}.jar</jar>
@@ -255,11 +253,12 @@ $ docker run -p 8080:8080 spring-app-dockerize:latest
 ```
 
 #### Using XML Configuration
-
+```bash
+$ mvn clean package
+$ docker run -p 8080:8080 01-hello-world-rest-api:latest
 ```
-<!-- To build the image - "mvn clean package" -->
-<!-- TAG - 01-hello-world-rest-api:latest -->
-<!-- docker run -p 8080:8080 01-hello-world-rest-api:latest -->
+
+```xml
 <plugin>
    <groupId>io.fabric8</groupId>
    <artifactId>docker-maven-plugin</artifactId>
@@ -297,6 +296,19 @@ $ docker run -p 8080:8080 spring-app-dockerize:latest
    </executions>
 </plugin>
  ```
+
+### ### To Build the Docker Image using paketo buildpack
+```xml
+<configuration>
+    <image>
+        <name>ssamantr/${project.artifactId}</name>
+    </image>
+</configuration>
+```
+```bash
+$ mvn spring-boot:build-image
+```
+
 ### To push the Docker Image to docker hub
 ```bash
 $ docker push image-name:tag-name
