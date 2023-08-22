@@ -39,7 +39,7 @@ $ docker container ls
 ### 5) Run the .jar from the /tmp directory
 ```bash
 $ docker container commit --change='CMD ["java","-jar","/tmp/appliance-web-app.jar"]' <container-id> appliance-web-app:latest
-$ docker run -p 8080:8080 appliance-web-app:latest
+$ docker run -p 8080:8080 ssamantr/dockerize-web-appliance:1.0.0
 ```
 
 ## Docker File
@@ -64,13 +64,13 @@ ENTRYPOINT ["sh", "-c", "java -jar /app.jar"]
 
 ### To Build the Docker Image from Dockerfile
 ```bash
-$ docker build -f Dockerfile -t appliance-web-app:latest .
+$ docker build -f Dockerfile -t dockerize-web-appliance:latest .
 ```
 ```bash
 $ docker images
 $ docker container ls
-$ docker run -p 8080:8080 appliance-web-app:latest
-$ docker history appliance-web-app:latest
+$ docker run -p 8080:8080 dockerize-web-appliance:latest
+$ docker history dockerize-web-appliance:latest
 ```
 
 ## Plugins
@@ -85,7 +85,7 @@ $ docker history appliance-web-app:latest
 <plugin>
 	<groupId>com.spotify</groupId>
 	<artifactId>dockerfile-maven-plugin</artifactId>
-	<version>1.4.10</version>
+	<version>1.4.13</version>
 	<executions>
 		<execution>
 			<id>default</id>
@@ -95,7 +95,7 @@ $ docker history appliance-web-app:latest
 		</execution>
 	</executions>
 	<configuration>
-		<repository>in28min/${project.name}</repository>
+		<repository>ssamantr/${project.name}</repository>
 		<tag>${project.version}</tag>
 		<skipDockerInfo>true</skipDockerInfo>
 	</configuration>
@@ -158,7 +158,7 @@ ENTRYPOINT ["java","-cp","app:app/lib/*","com.containerize.springappdockerize.Sp
 
 ### To Build the Docker Image from Dockerfile
 ```bash
-$ docker build -f Dockerfile -t spring-app-dockerize:latest .
+$ docker build -f Dockerfile -t dockerize-web-appliance:latest .
 ```
 
 ### JIB Plugin
@@ -226,7 +226,7 @@ $ docker build -f Dockerfile -t spring-app-dockerize:latest .
 #### Using Dockerfile
 ```bash
 $ mvn clean package
-$ docker run -p 8080:8080 spring-app-dockerize:latest
+$ docker run -p 8080:8080 ssamantr/dockerize-web-appliance:1.0.0
 ```
 ```xml
 <plugin>
@@ -255,7 +255,7 @@ $ docker run -p 8080:8080 spring-app-dockerize:latest
 #### Using XML Configuration
 ```bash
 $ mvn clean package
-$ docker run -p 8080:8080 01-hello-world-rest-api:latest
+$ docker run -p 8080:8080 dockerize-web-appliance:latest
 ```
 
 ```xml
@@ -312,5 +312,5 @@ $ mvn spring-boot:build-image
 ### To push the Docker Image to docker hub
 ```bash
 $ docker push image-name:tag-name
-$ docker push ssamantr/dockerize-web-appliance:0.0.1-SNAPSHOT
+$ docker push ssamantr/dockerize-web-appliance:1.0.0
 ```

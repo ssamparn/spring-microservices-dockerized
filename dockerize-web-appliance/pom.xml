@@ -5,19 +5,19 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
+		<version>3.1.2</version>
 		<relativePath/>
 	</parent>
 
 	<groupId>com.containerize</groupId>
 	<artifactId>dockerize-web-appliance</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>Dockerize Web Appliance Application</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
@@ -64,16 +64,24 @@
 	</dependencies>
 
 	<build>
-		<finalName>appliance-web-app</finalName>
+		<finalName>dockerize-web-appliance</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>ssamantr/${project.artifactId}</name>
+						<name>ssamantr/${project.artifactId}:${project.version}</name>
 					</image>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>build-image</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 <!--			<plugin>-->
 <!--				<groupId>com.spotify</groupId>-->
@@ -118,7 +126,7 @@
 <!--			<plugin>-->
 <!--				<groupId>com.google.cloud.tools</groupId>-->
 <!--				<artifactId>jib-maven-plugin</artifactId>-->
-<!--				<version>1.6.1</version>-->
+<!--				<version>3.3.2</version>-->
 <!--				<configuration>-->
 <!--					<container>-->
 <!--						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>-->

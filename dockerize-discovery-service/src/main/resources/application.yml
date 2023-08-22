@@ -1,3 +1,5 @@
+---
+# a separate docker profile is not needed for discovery service.
 server:
   port: 8761
 

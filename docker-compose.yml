@@ -1,8 +1,8 @@
-version: '3.7'
+version: '3.8'
 
 services:
   discovery-server:
-    image: ssamantr/dockerize-discovery-service:0.0.1-SNAPSHOT
+    image: ssamantr/dockerize-discovery-service:1.0.0
     ports:
       - "8761:8761"
     restart: always
@@ -10,22 +10,25 @@ services:
       - currency-compose-network
 
   currency-exchange-service:
-    image: ssamantr/dockerize-currency-exchange:0.0.1-SNAPSHOT
+    image: ssamantr/dockerize-currency-exchange:1.0.0
     ports:
       - "8000:8000"
     restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
     depends_on:
       - discovery-server
     networks:
       - currency-compose-network
 
   currency-conversion-service:
-    image: ssamantr/dockerize-currency-conversion:0.0.1-SNAPSHOT
+    image: ssamantr/dockerize-currency-conversion:1.0.0
     ports:
       - "8100:8100"
     restart: always
     environment:
       CURRENCY_EXCHANGE_URI: http://currency-exchange-service:8000
+      SPRING_PROFILES_ACTIVE: docker
     depends_on:
       - discovery-server
       - currency-exchange-service

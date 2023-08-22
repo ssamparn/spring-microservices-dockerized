@@ -21,7 +21,7 @@ eureka:
     instance-id: ${spring.application.name}
   client:
     serviceUrl:
-      default-zone: http://localhost:8761/eureka
+      defaultZone: http://discovery-server:8761/eureka/
     registerWithEureka: true
 
 feign:

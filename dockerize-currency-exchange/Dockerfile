@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:17
 VOLUME /tmp
 EXPOSE 8000
 ADD target/dockerize-currency-exchange.jar dockerize-currency-exchange.jar

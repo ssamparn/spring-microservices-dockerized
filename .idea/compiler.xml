@@ -13,18 +13,12 @@
         <module name="dockerize-discovery-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="02-todo-web-application-h2" target="1.8" />
-      <module name="dockerize-war-todo" target="11" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="02-todo-web-application-h2" options="-parameters" />
       <module name="dockerize-currency-conversion" options="-parameters" />
       <module name="dockerize-currency-exchange" options="-parameters" />
       <module name="dockerize-discovery-service" options="-parameters" />
-      <module name="dockerize-war-todo" options="-parameters" />
       <module name="dockerize-web-appliance" options="-parameters" />
     </option>
   </component>

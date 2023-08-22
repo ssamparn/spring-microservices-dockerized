@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:17
 VOLUME /tmp
 EXPOSE 8761
 ADD target/dockerize-discovery-service.jar dockerize-discovery-service.jar
