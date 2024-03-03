@@ -7,7 +7,7 @@ services:
       - "8761:8761"
     restart: always
     networks:
-      - currency-compose-network
+      - currency-network
 
   currency-exchange-service:
     image: ssamantr/dockerize-currency-exchange:1.0.0
@@ -19,7 +19,7 @@ services:
     depends_on:
       - discovery-server
     networks:
-      - currency-compose-network
+      - currency-network
 
   currency-conversion-service:
     image: ssamantr/dockerize-currency-conversion:1.0.0
@@ -33,7 +33,7 @@ services:
       - discovery-server
       - currency-exchange-service
     networks:
-      - currency-compose-network
+      - currency-network
 
 networks:
-  currency-compose-network:
+  currency-network:

@@ -46,7 +46,7 @@ $ docker run -p 8080:8080 ssamantr/dockerize-web-appliance:1.0.0
 
 ### Basic
 ```bash
-FROM openjdk:11
+FROM openjdk:17
 ADD target/hello-world-rest-api.jar hello-world-rest-api.jar
 WORKDIR /tmp
 EXPOSE 8080
@@ -55,7 +55,7 @@ ENTRYPOINT ["sh", "-c", "java -jar /hello-world-rest-api.jar"]
 
 ### Genric
 ```bash
-FROM openjdk:11
+FROM openjdk:17
 ADD target/*.jar app.jar
 WORKDIR /tmp
 EXPOSE 8080
@@ -297,7 +297,7 @@ $ docker run -p 8080:8080 dockerize-web-appliance:latest
 </plugin>
  ```
 
-### ### To Build the Docker Image using paketo buildpack
+### To Build the Docker Image using paketo buildpack
 ```xml
 <configuration>
     <image>
@@ -314,3 +314,6 @@ $ mvn spring-boot:build-image
 $ docker push image-name:tag-name
 $ docker push ssamantr/dockerize-web-appliance:1.0.0
 ```
+
+## Relative Links
+[fix for docker image](https://stackoverflow.com/questions/74173489/docker-socket-is-not-found-while-using-intellij-idea-and-docker-desktop-on-macos)
