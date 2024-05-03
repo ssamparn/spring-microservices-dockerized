@@ -315,5 +315,5 @@ $ docker push image-name:tag-name
 $ docker push ssamantr/dockerize-web-appliance:1.0.0
 ```
 
-## Relative Links
-[fix for docker image](https://stackoverflow.com/questions/74173489/docker-socket-is-not-found-while-using-intellij-idea-and-docker-desktop-on-macos)
+## Reference Links
+[fix for docker socket not found while trying to create docker image with spring boot buildpack](https://stackoverflow.com/questions/74173489/docker-socket-is-not-found-while-using-intellij-idea-and-docker-desktop-on-macos)
